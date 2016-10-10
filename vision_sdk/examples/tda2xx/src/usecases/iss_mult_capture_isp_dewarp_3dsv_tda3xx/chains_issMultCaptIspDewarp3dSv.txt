@@ -1,0 +1,19 @@
+UseCase: chains_issMultCaptIspDeWarp3dSv
+
+IssCapture -> IssM2mIsp -> Sync_dewarp
+
+Sync_dewarp -> Alg_DeWarp -> Alg_Synthesis (DSP1)
+
+Alg_Synthesis -> Display_Video
+
+// Input to PhotoAlign MUST be Q1 from Synthesis
+Alg_Synthesis -> Alg_PhotoAlign (DSP1)
+
+// PhotoAlign MUST be Q2 input to Synthesis
+Alg_PhotoAlign -> Alg_Synthesis  (DSP1)
+
+
+IssM2mIsp -> Alg_IssAewb
+
+
+
